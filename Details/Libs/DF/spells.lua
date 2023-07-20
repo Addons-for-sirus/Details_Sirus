@@ -274,7 +274,7 @@ DF.CooldownsBySpec = {
 			[lust_id] = 4, -- Bloodlust / Heroism
 		},
 		--restoration
-		[263] = {
+		[264] = {
 			[16190] = 3, -- Mana Tide Totem
 			[lust_id] = 4, -- Bloodlust / Heroism
 		},

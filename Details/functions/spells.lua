@@ -1004,6 +1004,7 @@ do
 		[47986] = 30, -- rank 9
 	}
 	_detalhes.AbsorbSpells = {
+		--AbsrobSpellList
 		--t5 absorb
 
 		[319166] = 10, --hpal absorb t4
@@ -1031,7 +1032,8 @@ do
 		[315529] = 10, -- расколотое солнце
 		-- trinkets
 		[317293] = 10, -- bronze statuette
-
+		[75477] = 10, -- ob halion absorb
+		[75480] = 10, -- hm halion absorb
 		[55277] = 12, -- shmn ttm
 		--ttg
 		[318754] = 7, --ench ttg hpal
