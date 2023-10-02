@@ -254,6 +254,9 @@ local overridespell = { ---------- переопределение id спело�
 	[49240] = 49238, -- молния
 	-- [49240] = 49238, ----shaman elem light proc
 }
+local spellPeriodicOverride = {
+	[309084] = true,
+}
 local spell_create_is_summon = {
 	[34600] = true, -- snake trap
 }
@@ -440,14 +443,9 @@ end
 local mark
 function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, spellid, spellname, spelltype, amount, overkill, school, resisted, blocked, absorbed, critical, glacing, crushing)
 ------------------------------------------------------------------------------------------------
-
 	-- if who_name == "Шутка" then
-		-- print(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, spellid, spellname, spelltype, amount, overkill, school, resisted, blocked, absorbed, critical, glacing, crushing)
+	-- 	print(token,spellid, spellname)
 	-- end
-	-- local i = 1
-
-	
-		
 	if who_serial == "" then
 		if who_flags and _bit_band(who_flags, OBJECT_TYPE_PETS) ~= 0 then --> � um pet
 			--> pets must have a serial
@@ -470,6 +468,10 @@ function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_ser
 	--> check if the spell isn't in the backlist
 	if damage_spells_to_ignore[spellid] then
 		return
+	end
+	if token == "SPELL_PERIODIC_DAMAGE" and spellPeriodicOverride[spellid] then
+		spellname = spellname .."[dot]"
+		spellid = 17731
 	end
 	if overridespell[spellid] then
 		spellid = overridespell[spellid]
@@ -1841,7 +1843,6 @@ end
 			_table_sort(escudo[alvo_name], AbsorbAuraOrderPred)
 		end
 	if(tipo == "BUFF") then
-		-- print("DAS")
 		------------------------------------------------------------------------------------------------
 		--> buff uptime
 
@@ -1931,7 +1932,6 @@ end
 
 			if(_recording_ability_with_buffs) then
 				if(who_name == _detalhes.playername) then
-					-- print("DAS")
 
 					--> record debuff uptime
 					local SoloDebuffUptime = _current_combat.SoloDebuffUptime
@@ -4856,7 +4856,6 @@ end)
 function _detalhes.OnParserEvent(_, _, time, token, who_serial, who_name, who_flags, target_serial, target_name, target_flags, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12)
 	local funcao = token_list[token]
 	if funcao then
-		-- print("DASDAFA")
 		-- if overridespell[A1] then
 		-- 	A1 = overridespell[A1]
 		-- end

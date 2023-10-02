@@ -1103,7 +1103,7 @@ do
 		[27128] = 30,
 		[43010] = 30, -- Rank 7
 		-- Paladin
-		[58597] = 6, -- Sacred Shield (Paladin) proc (Fixed, thanks to Julith)
+		-- [58597] = 6, -- Sacred Shield (Paladin) proc (Fixed, thanks to Julith)
 		-- Priest
 		[17] = 30, -- Power Word: Shield (Priest) Rank 1
 		[592] = 30,
