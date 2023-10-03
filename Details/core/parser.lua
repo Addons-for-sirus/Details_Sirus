@@ -255,7 +255,8 @@ local overridespell = { ---------- переопределение id спело�
 	-- [49240] = 49238, ----shaman elem light proc
 }
 local spellPeriodicOverride = {
-	[309084] = true,
+	[309084] = 17731, -- t5 enh
+	[319287] = 321523, -- nialot
 }
 local spell_create_is_summon = {
 	[34600] = true, -- snake trap
@@ -443,9 +444,7 @@ end
 local mark
 function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, spellid, spellname, spelltype, amount, overkill, school, resisted, blocked, absorbed, critical, glacing, crushing)
 ------------------------------------------------------------------------------------------------
-	-- if who_name == "Шутка" then
-	-- 	print(token,spellid, spellname)
-	-- end
+
 	if who_serial == "" then
 		if who_flags and _bit_band(who_flags, OBJECT_TYPE_PETS) ~= 0 then --> � um pet
 			--> pets must have a serial
@@ -469,9 +468,11 @@ function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_ser
 	if damage_spells_to_ignore[spellid] then
 		return
 	end
-	if token == "SPELL_PERIODIC_DAMAGE" and spellPeriodicOverride[spellid] then
-		spellname = spellname .."[dot]"
-		spellid = 17731
+	if token == "SPELL_PERIODIC_DAMAGE" then
+		if spellPeriodicOverride[spellid] then
+			spellname = spellname .."[dot]"
+			spellid = spellPeriodicOverride[spellid]
+		end
 	end
 	if overridespell[spellid] then
 		spellid = overridespell[spellid]
