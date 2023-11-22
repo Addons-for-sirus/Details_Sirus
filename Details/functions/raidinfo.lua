@@ -1423,15 +1423,105 @@ do --> data for hyjal
 		encounters = ENCOUNTERS,
 
 		boss_ids = {
-			[17767] = 1,
-			[17808] = 2,
-			[17888] = 3,
-			[17842] = 4,
-			[17968] = 5
+			[22887] = 1,
+			[22898] = 2,
+			[22841] = 3,
+			[22871] = 4,
+			[22948] = 5,
+			[23420] = 6,
+			[22947] = 7,-- , 22950, 22951, 22952
+			[22949] = 8,
+			[22917] = 9,
 		},
 	})
 end
 
--- /run local mapID, isContenent = GetCurrentMapAreaID() print(mapID, isContenent)
+
+do --> data for bt
+	local INSTANCE_MAPID = 848
+	local HDIMAGESPATH = "Details\\images\\raid"
+	local HDFILEPREFIX = "TheBronzeSanctuary"  --TODO
+	local LOADINGSCREEN_FILE, LOADINGSCREEN_COORDS = "LoadScreenMalygos", {0, 1, 285/1024, 875/1024}
+	local EJ_DUNGEONBG = "UI-EJ-DUNGEONBUTTON-WORLD"
+	local EJ_LOREBG = "UI-EJ-LOREBG-WORLD"
+
+	local PORTRAIT_LIST = {
+		"UI-EJ-BOSS-Zort",
+		"UI-EJ-BOSS-Zort",
+		"UI-EJ-BOSS-Zort",
+		"UI-EJ-BOSS-Zort",
+		"UI-EJ-BOSS-Zort",
+		"UI-EJ-BOSS-Zort",
+		"UI-EJ-BOSS-Zort",
+		"UI-EJ-BOSS-Zort",
+		"UI-EJ-BOSS-Zort",
+	}
+
+
+
+	local ENCOUNTER_ID_CL = {
+		22887,22898,22841,22871,22948,23420,22947,22949,22917,
+		[22887] = 1,
+		[22898] = 2,
+		[22841] = 3,
+		[22871] = 4,
+		[22948] = 5,
+		[23420] = 6,
+		[22947] = 7,
+		[22949] = 8,-- , 22950, 22951, 22952
+		[22917] = 9,
+	}
+
+	local BOSSNAMES = {
+		LBB["High Warlord Naj'entus"],
+		LBB["Supremus"],
+		LBB["Shade of Akama"],
+		LBB["Teron Gorefiend"],
+		LBB["Gurtogg Bloodboil"],
+		LBB["Essence of Anger"],
+		LBB["Mother Shahraz"],
+		LBB["Gathios the Shatterer"],
+		LBB["Illidan Stormrage"],
+	}
+
+	local ENCOUNTERS = {}
+
+	for i = 1, #PORTRAIT_LIST do
+		local encounterTable = {
+			boss = BOSSNAMES[i],
+			portrait = "Interface\\EncounterJournal\\"..PORTRAIT_LIST[i],
+		}
+		tinsert(ENCOUNTERS, encounterTable)
+	end
+
+	_detalhes:InstallEncounter({
+		id = INSTANCE_MAPID,
+
+		name = "Черный храм",
+		icons = "Interface\\AddOns\\"..HDIMAGESPATH.."\\"..HDFILEPREFIX.."_BossFaces",
+		icon = "Interface\\EncounterJournal\\"..EJ_DUNGEONBG,
+		is_raid = true,
+		backgroundFile = {file = "Interface\\Glues\\LOADINGSCREENS\\"..LOADINGSCREEN_FILE, coords = LOADINGSCREEN_COORDS},
+		backgroundEJ = "Interface\\EncounterJournal\\"..EJ_LOREBG,
+
+		encounter_ids2 = ENCOUNTER_ID_CL,
+		boss_names = BOSSNAMES,
+		encounters = ENCOUNTERS,
+
+		boss_ids = {
+			[22887] = 1,
+			[22898] = 2,
+			[22841] = 3,
+			[22871] = 4,
+			[22948] = 5,
+			[23420] = 6,
+			[22947] = 7,
+			[22949] = 8,
+			[22917] = 9,
+		},
+	})
+end
+
+-- /dump GetCurrentMapAreaID()
 -- zort 914
 -- 864 хиджал
