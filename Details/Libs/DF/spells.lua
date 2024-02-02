@@ -579,6 +579,7 @@ DF.PotionIDs = {
 	[28494] = true, -- Insane Strength Potion
 	[38929] = true, -- Fel mana potion
 
+	[371521] = true, -- Potion of Adrenaline
 	[53909] = true, -- Potion of Wild Magic
 	[53908] = true, -- Potion of Speed
 	[53750] = true, -- Crazy Alchemist's Potion
