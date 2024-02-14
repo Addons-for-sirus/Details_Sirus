@@ -5,6 +5,7 @@
 ## RequiredDeps: Details
 ## OptionalDeps: Ace3
 ## SavedVariablesPerCharacter: DeathGraphsDBDeaths, DeathGraphsDBEndurance, DeathGraphsDBCurrent, DeathGraphsDBGraph
+## X-Sirus-Update: https://github.com/fxpw/Details_Sirus/tree/master/Details_DeathGraphs
 
 locales\enUS.lua
 locales\deDE.lua

@@ -5,6 +5,7 @@
 ## RequiredDeps: Details
 ## OptionalDeps: Ace3
 ## SavedVariablesPerCharacter: DetailsTimeLineDB
+## X-Sirus-Update: https://github.com/fxpw/Details_Sirus/tree/master/Details_TimeLine
 
 locales\enUS.lua
 locales\deDE.lua

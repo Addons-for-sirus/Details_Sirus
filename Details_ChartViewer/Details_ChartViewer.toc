@@ -4,6 +4,7 @@
 ## Notes-ruRU: Позволяет просматривать данные в графических диаграммах.
 ## RequiredDeps: Details
 ## OptionalDeps: Ace3
+## X-Sirus-Update: https://github.com/fxpw/Details_Sirus/tree/master/Details_ChartViewer
 
 locales\enUS.lua
 locales\deDE.lua

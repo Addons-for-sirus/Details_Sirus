@@ -5,7 +5,7 @@
 ## DefaultState: Disabled
 ## RequiredDeps: Details
 ## OptionalDeps: Ace3
-
+## X-Sirus-Update: https://github.com/fxpw/Details_Sirus/tree/master/Details_TinyThreat
 #@no-lib-strip@
 embeds.xml
 #@end-no-lib-strip@

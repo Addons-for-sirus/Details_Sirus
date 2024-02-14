@@ -5,7 +5,7 @@
 ## RequiredDeps: Details
 ## OptionalDeps: Ace3
 ## SavedVariablesPerCharacter: EncounterDetailsDB
-
+## X-Sirus-Update: https://github.com/fxpw/Details_Sirus/tree/master/Details_EncounterDetails
 
 #@no-lib-strip@
 embeds.xml

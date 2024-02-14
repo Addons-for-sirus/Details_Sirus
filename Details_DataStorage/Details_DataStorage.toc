@@ -6,5 +6,6 @@
 ## LoadOnDemand: 1
 ## Dependencies: Details
 ## SavedVariables: DetailsDataStorage
+## X-Sirus-Update: https://github.com/fxpw/Details_Sirus/tree/master/Details_DataStorage
 
 Details_DataStorage.lua

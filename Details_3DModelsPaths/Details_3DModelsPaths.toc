@@ -9,5 +9,6 @@
 ## X-Curse-Project-Name: Details!
 ## X-Curse-Project-ID: details
 ## X-Curse-Repository-ID: wow/details/mainline
+## X-Sirus-Update: https://github.com/fxpw/Details_Sirus/tree/master/Details_3DModelsPaths
 
 Details_3DModelsPaths.lua
