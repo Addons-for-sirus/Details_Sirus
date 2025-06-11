@@ -31,6 +31,7 @@ local _UnitClass = UnitClass --wow api local
 local _IsInRaid = IsInRaid --wow api local
 local _IsInGroup = IsInGroup --wow api local
 local _GetNumGroupMembers = GetNumGroupMembers --wow api local
+local _GetNumRaidMembers = GetNumRaidMembers --wow api local
 local _UnitAffectingCombat = UnitAffectingCombat --wow api local
 local _GameTooltip = GameTooltip --wow api local
 local _UIFrameFadeIn = UIFrameFadeIn --wow api local
@@ -883,25 +884,23 @@ function _detalhes:EstaEmCombate()
 	_detalhes:TimeDataTick()
 	_detalhes:BrokerTick()
 	_detalhes:HealthTick()
-
 	if (_detalhes.zone_type == "pvp" and _detalhes.use_battleground_server_parser) or _detalhes.zone_type == "arena" or _InCombatLockdown() then
 		return true
 	elseif _UnitAffectingCombat("player") then
 		return true
-	elseif _IsInRaid() then
-		for i = 1, _GetNumGroupMembers(), 1 do
+	elseif GetNumRaidMembers()>0 then
+		for i = 1, GetNumRaidMembers() do
 			if _UnitAffectingCombat("raid"..i) then
 				return true
 			end
 		end
-	elseif _IsInGroup() then
-		for i = 1, _GetNumGroupMembers(), 1 do
+	elseif GetNumGroupMembers()>0 then
+		for i = 1, GetNumGroupMembers() do
 			if _UnitAffectingCombat("party"..i) then
 				return true
 			end
 		end
 	end
-
 	-- TODO
 	if _detalhes.encounter_table and _detalhes.encounter_table.id == 36597 then
 		if (_detalhes.debug) then
