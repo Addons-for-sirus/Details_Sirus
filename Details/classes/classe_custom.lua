@@ -729,7 +729,7 @@ function atributo_custom:RefreshBarra(esta_barra, instancia, from_resize)
 			esta_barra.icone_classe:SetTexture(self.icon)
 		else
 			if instancia.row_info.use_spec_icons then
-				if self.spec or self.my_actor.spec then
+				if self.spec or self.my_actor.spec and _detalhes.class_specs_coords[self.spec or self.my_actor.spec] then
 					esta_barra.icone_classe:SetTexture(instancia.row_info.spec_file)
 					esta_barra.icone_classe:SetTexCoord(_unpack(_detalhes.class_specs_coords[self.spec or self.my_actor.spec]))
 				else
